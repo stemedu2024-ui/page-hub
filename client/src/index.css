@@ -1,0 +1,326 @@
+/* Google Fonts - Noto Sans KR */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap');
+
+/* 전역 스타일 리셋 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* 색상 변수 */
+  --color-primary-light: #FFF9E6;
+  --color-primary-main: #FFE082;
+  --color-primary-dark: #FFB300;
+  
+  --color-secondary-light: #E8F5E9;
+  --color-secondary-main: #66BB6A;
+  --color-secondary-dark: #388E3C;
+  
+  --color-accent-light: #FFEBEE;
+  --color-accent-main: #EF5350;
+  --color-accent-dark: #C62828;
+  
+  --color-neutral-white: #FFFFFF;
+  --color-neutral-light-gray: #F5F5F5;
+  --color-neutral-gray: #E0E0E0;
+  --color-neutral-dark-gray: #9E9E9E;
+  --color-neutral-black: #212121;
+  
+  /* 간격 */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  
+  /* 둥근 모서리 */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-full: 9999px;
+  
+  /* 그림자 */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+body {
+  font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, var(--color-primary-light) 0%, #FFFFFF 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  color: var(--color-neutral-black);
+  line-height: 1.6;
+}
+
+/* 배경 패턴 (선택적 - 플로럴 느낌) */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(255, 224, 130, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(102, 187, 106, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 20%, rgba(239, 83, 80, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  padding: var(--spacing-xl) var(--spacing-md);
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* 스크롤바 스타일링 */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-neutral-light-gray);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary-main);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-dark);
+}
+
+/* 링크 스타일 */
+a {
+  color: var(--color-secondary-main);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-secondary-dark);
+}
+
+/* 포커스 스타일 */
+*:focus {
+  outline: 2px solid var(--color-primary-main);
+  outline-offset: 2px;
+}
+
+/* 버튼 기본 스타일 */
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* 입력 필드 기본 스타일 */
+input,
+textarea,
+select {
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid var(--color-primary-main);
+  outline-offset: 2px;
+}
+
+/* 애니메이션 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide-in {
+  animation: slideIn 0.3s ease-out;
+}
+
+/* 반응형 - 모바일 최적화 */
+@media (max-width: 768px) {
+  .main-content {
+    padding: var(--spacing-md) var(--spacing-sm);
+  }
+
+  /* 헤더 모바일 */
+  header {
+    padding: 0.75rem 1rem !important;
+  }
+
+  header h1 {
+    font-size: 1.25rem !important;
+  }
+
+  /* 카드 모바일 */
+  .card,
+  [class*='Card'] {
+    padding: 1rem !important;
+    border-radius: 12px !important;
+  }
+
+  /* 버튼 모바일 */
+  button {
+    padding: 0.625rem 1.25rem !important;
+    font-size: 0.875rem !important;
+  }
+
+  /* 입력 필드 모바일 */
+  input,
+  textarea,
+  select {
+    padding: 0.625rem 0.875rem !important;
+    font-size: 1rem !important; /* iOS 줌 방지 */
+  }
+
+  /* 폼 모바일 */
+  form {
+    width: 100%;
+  }
+
+  /* 피드 모바일 */
+  .feed-container {
+    padding: 1rem 0.5rem !important;
+  }
+
+  /* 포스트 카드 모바일 */
+  .post-card {
+    margin-bottom: 1rem !important;
+  }
+
+  /* 이미지 모바일 */
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* 작은 모바일 */
+  .main-content {
+    padding: var(--spacing-sm) var(--spacing-xs);
+  }
+
+  header {
+    padding: 0.5rem 0.75rem !important;
+  }
+
+  header nav {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  h1 {
+    font-size: 1.5rem !important;
+  }
+
+  h2 {
+    font-size: 1.25rem !important;
+  }
+
+  /* 버튼 스택 */
+  .button-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .button-group button {
+    width: 100%;
+  }
+
+  /* 카드 패딩 감소 */
+  .card {
+    padding: 0.75rem !important;
+  }
+}
+
+/* 터치 친화적 - 모바일 */
+@media (hover: none) and (pointer: coarse) {
+  /* 터치 영역 최소 44x44px */
+  button,
+  a,
+  input[type='button'],
+  input[type='submit'] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* 호버 효과 제거 */
+  button:hover,
+  a:hover {
+    transform: none;
+  }
+
+  /* 포커스 강화 */
+  *:focus {
+    outline: 3px solid var(--color-primary-main);
+    outline-offset: 2px;
+  }
+}
+
+/* 가로 모드 최적화 */
+@media (max-width: 768px) and (orientation: landscape) {
+  header {
+    padding: 0.5rem 1rem !important;
+  }
+
+  .main-content {
+    padding: var(--spacing-sm) var(--spacing-sm);
+  }
+}
